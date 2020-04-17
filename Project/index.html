@@ -7,8 +7,40 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-    <div class="head"></div>
+    <div class="head">
+        <ul>
+            <li>树叶</li>
+            <li>花草</li>
+            <li>翠竹</li>
+        </ul>
+    </div>
     <div class="body"></div>
     <div class="footer"></div>
 </body>
+<script type="text/javascript">
+    //微信分享
+    var title = document.title;
+    var url = window.location.href;
+    var desc = $("meta[name=Description]").attr("content");
+    var img = "https://m.fxeye.com/content/images/wh_icon.png";
+    if (!desc) {
+        desc = title;
+    }
+    var shareData = {
+        getDataUrl: "/Home/GetJsTicket.html", //活动ID,不同的活动必须唯一
+        sharedata:{"type": "markethk", "url": encodeURIComponent(window.location.href) },
+        title: title, //分享标题
+        desc: desc, //分享描述
+        link: window.location.href, //分享链接
+        istiaoshi: false,//是否调试
+        imgUrl: img, //分享图标
+        type: '', //分享类型,music、video或link，不填默认为link
+        dataUrl: '' //如果type是music或video，则要提供数据链接，默认为空
+    };
+    //分享成功执行
+    function ShareOK(shareSources) {}
+    //分享失败执行
+    function ShareCancel(shareSources) {}
+</script>
+<script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
 </html>

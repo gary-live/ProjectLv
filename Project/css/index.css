@@ -1,3 +1,6 @@
-.head{background-color: azure;}
+*{margin: 0;padding: 0;}
+ul li{list-style: none;}
+.head{background-color: azure;height: 50px;}
+.head ul li{font-size: 16px;color: #000;}
 .body{background-color: blueviolet;}
 .footer{background-color: chocolate;}
