@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
+    <style>
+        body{
+            height: 3000px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="head">
         <ul>
@@ -27,7 +34,7 @@
         <div>下雨快乐</div>
     </div>
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     //微信分享
     var title = document.title;
     var url = window.location.href;
@@ -52,5 +59,22 @@
     //分享失败执行
     function ShareCancel(shareSources) {}
 </script>
-<script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script type="text/javascript" src="https://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
+复制代码
+<script type="text/javascript" charset="utf-8" src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js">
+</script>
+<script type="text/javascript" charset="utf-8" src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js"></script>
+<script type="text/javascript">
+    L2Dwidget.init({
+        "display": {
+            "superSample": 2,
+            "width": 200,
+            "height": 400,
+            "position": "right",
+            "hOffset": 0,
+            "vOffset": 0
+        }
+    });
+</script>
+
 </html>
