@@ -1,0 +1,331 @@
+/* 公共的选择国家提示框 */
+.choose-country-bg{display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:url(//www.wikifx.com/Contentgj/images/pop_bg.png) repeat;z-index:88;}
+.choose-country-bg .choose-country-box{width:804px;padding:35px 40px 30px;height:auto;position:fixed;left:50%;top:50%;margin-left:-455px;margin-top:-232px;z-index:99;background:#fff;-moz-border-radius:5px;border-radius:5px;overflow:hidden;}
+.choose-country-bg .close-choose{position:absolute;right:20px;top:20px;width:15px;height:15px;line-height:15px;font-size:25px;color:#999999;cursor:pointer;}
+.choose-country-bg .choose-country-box .tit{font-size:20px;color:#333333;line-height:1.4em;text-align:center;margin-bottom:24px;}
+.choose-country-bg .choose-country-box li{float:left;height:48px;border-radius:3px;margin-bottom:10px;width:190px;padding-left:10px;overflow:hidden;}
+.choose-country-bg .choose-country-box li a{color:#8a9399;text-decoration:none;}
+.choose-country-bg .choose-country-box li img{float:left;height:22px;width:34px;margin-top:12px;}
+.choose-country-bg .choose-country-box li .txt{float:left;font-size:12px;padding-top:8px;margin-left:10px;width:136px;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap;}
+.choose-country-bg .choose-country-box li:hover{background:#e4ebf0}
+.choose-country-bg .choose-country-box li:hover a{color:#666666;}
+.select-flag{cursor:pointer;display:inline-block;*zoom:1;*display:inline;}
+
+/* 选择国家部分背景国旗设置 */
+em[class^='flag-bg']{display:inline-block;width:34px;height:22px;vertical-align:middle;background-image:url(//www.wikifx.com/Contentgj/images/flags_bg.png);background-repeat:no-repeat;margin-right:10px;margin-top:-3px;}
+em.flag-bg-cn{background-position:0 0;}
+em.flag-bg-hk{background-position:-34px 0;}
+em.flag-bg-tw{background-position:-68px 0;}
+em.flag-bg-us{background-position:-102px 0;}
+em.flag-bg-kr{background-position:-136px 0;}
+em.flag-bg-uk{background-position:-170px 0;}
+em.flag-bg-jp{background-position:-204px 0;}
+em.flag-bg-id{background-position:-238px 0;}
+em.flag-bg-vn{background-position:-272px 0;}
+em.flag-bg-au{background-position:-306px 0;}
+em.flag-bg-sg{background-position:0 -22px;}
+em.flag-bg-th{background-position:-34px -22px;}
+em.flag-bg-cy{background-position:-68px -22px;}
+em.flag-bg-de{background-position:-102px -22px;}
+em.flag-bg-ru{background-position:-136px -22px;}
+em.flag-bg-ph{background-position:-170px -22px;}
+em.flag-bg-nz{background-position:-204px -22px;}
+em.flag-bg-ua{background-position:-238px -22px;}
+em.flag-bg-in{background-position:-272px -22px;}
+em.flag-bg-fr{background-position:-306px -22px;}
+em.flag-bg-es{background-position:0 -44px;}
+em.flag-bg-pt{background-position:-34px -44px;}
+em.flag-bg-my{background-position:-68px -44px;}
+em.flag-bg-ng{background-position:-102px -44px;}
+em.flag-bg-kh{background-position:-136px -44px;}
+
+/* 弹框登录样式 */
+.pop-login-bg{position:fixed;left:0;top:0;bottom:0;right:0;background:rgba(0,0,0,0.5);z-index:999;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);display:none;}
+.g-login-box{position:absolute;background-color:#ffffff;box-shadow:0px 0px 10px 0px rgba(0,0,0,0.2);border-radius:10px;}
+.g-login-box input:focus{border:0!important;outline:none!important;}
+.g-login-box input::-webkit-input-placeholder{ /* WebKit browsers */
+color:#cccccc;}
+.g-login-box input:-moz-placeholder{ /* Mozilla Firefox 4 to 18 */
+color:#cccccc;opacity:1;}
+.g-login-box input::-moz-placeholder{ /* Mozilla Firefox 19+ */
+color:#cccccc;opacity:1;}
+.g-login-box input:-ms-input-placeholder{ /* Internet Explorer 10+ */
+color:#cccccc;}
+.g-login-box .login-inner{padding:60px 30px 0;}
+.g-login-box .third-party-login{height: 46px; margin-bottom: 34px;}
+.g-login-box .third-party-login .third-party-ul li{float: left;height: 46px;width: 50px;box-sizing: border-box; line-height: 46px;margin-right: 10px; font-size: 16px;color: #fff;border-radius: 4px; cursor: pointer;position: relative;overflow: hidden;-webkit-tap-highlight-color: transparent;z-index: 1;}
+.g-login-box .third-party-login .third-party-ul li:nth-child(4n){margin-right: 0;}
+.g-login-box .third-party-login .third-party-ul li .waves-animation {position: absolute;z-index: -1; border-radius: 50%;width: 25px;height: 25px;opacity: 0;transition: all 0.7s ease-out;transition-property: transform, opacity, -webkit-transform;-webkit-transform: scale(0);transform: scale(0);pointer-events: none;}
+.g-login-box .third-party-login .third-party-ul li a{color: #fff;display: inline-block;width: 100%;height: 100%;white-space: nowrap;text-align: center;}
+.g-login-box .third-party-login .third-party-ul .gt-Txt{display: inline-block;width: 100%;height: 100%;padding-left: 50px;padding-right: 30px; box-sizing: border-box; position: relative; z-index: 0;}
+.g-login-box .third-party-login .third-WeChat{background-color: #18BF83;}
+.g-login-box .third-party-login .third-WeChat .waves-animation {background-color: #129666;}
+.g-login-box .third-party-login .third-WeChat .gt-Txt:after{content: "";width: 28px;height: 22px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -112px -40px;position: absolute;left: 12px;top: 12px;}
+.g-login-box .third-party-login .third-QQ{background-color: #17B5FF;}
+.g-login-box .third-party-login .third-QQ .waves-animation {background-color: #108EC9;}
+.g-login-box .third-party-login .third-QQ .gt-Txt:after{content: "";width: 28px;height: 22px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -140px -40px;position: absolute;left: 12px;top: 12px;}
+.g-login-box .third-party-login .third-Facebook{background-color: #435B95;}
+.g-login-box .third-party-login .third-Facebook .waves-animation {background-color: #25355C;}
+.g-login-box .third-party-login .third-Facebook .gt-Txt:after{content: "";width: 28px;height: 22px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -168px -40px;position: absolute;left: 12px;top: 12px;}
+.g-login-box .third-party-login .third-Twitter{background-color: #4C9EEB;}
+.g-login-box .third-party-login .third-Twitter .waves-animation {background-color: #266FB4;}
+.g-login-box .third-party-login .third-Twitter .gt-Txt:after{content: "";width: 28px;height: 22px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -196px -40px;position: absolute;left: 12px;top: 12px;}
+.g-login-box .login-line{background-color: #EBEDF0;height: 1px;text-align: center;margin-bottom: 33px;}
+.g-login-box .login-line .line-caption{font-size: 14px;color: #999999;background-color: #fff;padding: 0 15px;position: relative;top: -10px;}
+.g-login-box input{border:0;outline: none;}
+.g-login-box input[type=text],.g-login-box input[type=password]{background: none!important;}
+.g-login-box input:-webkit-autofill,.g-login-box  textarea:-webkit-autofill,.g-login-box  select:-webkit-autofill{background: #fff!important;}
+.g-login-box .login-inner input{font-size:16px;color:#333333;}
+.g-login-box .login-close-btn{position:absolute;right:10px;top:-35px;width:23px;height:35px;cursor:pointer;background:url(../images/popLogin/spirit-LgIcon.png) -161px 0px no-repeat;}
+.g-login-box .login-close-btn:hover{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -138px 0px;}
+.g-login-box .login-top-rght{position: absolute;right: 20px;top: 20px;cursor: pointer;}
+.g-login-box .login-top-rght:hover .login-Qr-icon{background: url(../images/poplogin/newImg/QR-codeHover.png) no-repeat center;background-size: 100% auto;}
+.g-login-box .login-top-rght:hover .login-note-icon{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -29px 0px;}
+.g-login-box .login-top-rght .login-Qr-icon{width: 32px;height: 32px;background: url(../images/poplogin/newImg/QR-code.png) no-repeat center;background-size: 100% auto; display: inline-block;vertical-align: top;}
+.g-login-box .login-top-rght .login-note-icon{width: 29px;height: 34px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat 0px 0px;display: inline-block;vertical-align: top;}
+.g-login-box .login-top-rght .login-App-scan{font-size: 14px;color: #56320B;background-color: #F4C830;border-radius: 2px;padding: 0 9px;height: 28px;line-height: 28px;display: inline-block;vertical-align: top;margin-right: 6px;margin-top: 2px; position: relative;box-shadow: 0px 5px 10px -6px #F4C830;}
+.g-login-box .login-top-rght .login-App-scan:after{content: "";border-color: transparent transparent transparent #F4C830;border-style: solid;border-width: 5px 6px 5px;position: absolute;right: -12px;top: 50%;margin-top: -5px;}
+.g-login-box .login-title{font-size:24px;font-weight:normal;color:#353f4e;margin-bottom:24px;}
+.g-login-box .login-footer{position:absolute;left:0;right:0;bottom:0;height:42px;line-height:42px;background:#f9f9f9;border-bottom-right-radius:10px;border-bottom-left-radius:10px;}
+/* 验证码登录 */
+.verifical-login{padding-bottom:42px;}
+.g-login-box .login-body li{margin-bottom:16px;}
+.g-login-box .login-body li.input-line{border: 1px solid #EBEDF0;border-radius: 4px;}
+.g-login-box .login-body li.input-box{position:relative;height:54px;line-height:54px;font-size:16px;}
+.g-login-box .login-body li.input-box .modify-left{float: left;}
+.g-login-box .login-body li.input-box .modify-right{float: left;width: 250px;margin-left: 12px;position: relative;border:1px solid #EBEDF0;border-radius: 4px;}
+.g-login-box .login-body li.input-box input{height:54px;vertical-align:bottom;padding-left: 16px;box-sizing: border-box;caret-color: #F4C830;}
+.g-login-box .login-body li.input-box.status-success input{height:30px;}
+.g-login-box .login-body li.input-box.status-error input{height:30px;}
+.g-login-box .login-body li.input-box.status-ok input{height:30px;}
+.g-login-box .login-body li.input-box.status-success .modify-right{border-color: #F4C830;}
+.g-login-box .login-body li.input-box.status-error .modify-right{border-color: #f95355;}
+.g-login-box .login-body li.input-box:after{content:"";position:absolute;left:0;height:2px;width:100%;transition:transform 0.3s;bottom:-1px;transform: scaleX(0);}
+.g-login-box .login-body li.input-box:before{content:"";position:absolute;left:0;height:2px;width:100%;transition:transform 0.3s;bottom:-1px;transform: scaleX(0);}
+.g-login-box .login-body li.input-line.status-success{border-color: #F4C830;}
+.g-login-box .login-body li.input-line.status-error{border-color: #f95355;}
+.g-login-box .login-body li.input-box.status-empty:before{width:100%;transform: scaleX(1);height: 0;}
+.verifical-login .login-body .select-country-box{width:136px;height:56px;line-height:56px;font-size:0;cursor:pointer;user-select:none;padding-left: 16px;box-sizing: border-box; border:1px solid #EBEDF0;border-radius: 4px;}
+.verifical-login .login-body .select-country-box img{width:25px;display:inline-block;vertical-align:middle;margin-right:8px;margin-top:-2px;border-radius: 3px;}
+.verifical-login .login-body .select-country-box span{font-size:16px;color:#333333;vertical-align:middle;margin-right:9px;font-family: Arial;}
+.verifical-login .login-body .select-country-box .icon-pointer{width:9px;height:6px;display:inline-block;vertical-align:middle;background:url(../images/popLogin/spirit-LgIcon.png) no-repeat -196px -69px;}
+.verifical-login .login-body .select-country-box.active{border-color: #F4C830;}
+.verifical-login .login-body .select-country-box.active .icon-pointer{background-position: -205px -69px;}
+.verifical-login .login-body input{font-size:16px;color:#333333;}
+.verifical-login .login-body input.input-code{width:220px;}
+.verifical-login .login-body input.input-phone{width:250px;}
+.verifical-login .login-body li .btn-box{float:right;text-align:center;position: relative;}
+.verifical-login .login-body li .btn-box span{display: inline-block; text-align: center;min-width: 90px; color: #3296FA; font-size: 14px; cursor: pointer; height: 54px; line-height: 54px; vertical-align: top;}
+.verifical-login .login-body li .btn-box .btn-skip{float:right;display:none;}
+.verifical-login .login-body li .btn-get-code:hover{color: #177ADD;}
+.verifical-login .login-body li .btn-get-code:before{content: "";width: 1px;height: 24px;background-color: #EBEDF0;position: absolute;left: 0;top: 50%;margin-top: -12px;}
+.g-login-box .login-body .error-tips{font-size:14px;color:#f95355;margin-top:-4px;margin-bottom:8px;display:none;}
+.g-login-box .login-body .error-tips.tip-phone{padding-left: 148px;box-sizing: border-box;}
+.g-login-box .login-body .zhuce{color:#50a2f8; cursor:pointer; }
+.g-login-box .login-body button{border:0;outline:none;cursor:pointer;}
+.verifical-login .login-body>button,.password-login .login-body>button{margin-bottom:30px;margin-top:2px;}
+.verifical-login .login-body .forbid-btn.btn-login,.password-login .login-body .forbid-btn.btn-login{width:400px;height:50px;line-height:50px;text-align:center;background-color:#F4C830;border-radius:3px;font-size:16px;color:#56320B;cursor:pointer;}
+.verifical-login .login-body .forbid-btn.btn-login:hover,.password-login .login-body .forbid-btn.btn-login:hover{background:#D89F00;}
+.verifical-login .login-body .forbid-btn,.password-login .login-body .forbid-btn{width:400px;height:50px;color:#afb0b3;font-size:16px;line-height:50px;text-align:center;background-color:#ebedf0;border-radius:4px;cursor:not-allowed;}
+.verifical-login .login-body .forbid-btn.skip-dpt{width: 192px !important;margin-right: 12px;}
+.verifical-login .login-body .skip-button{width: 192px;height: 50px;line-height: 50px;font-size: 16px;color: #666;text-align: center;background-color: #fff;border: 1px solid #EBEDF0;border-radius:4px;display: none;}
+.verifical-login .login-body .skip-button:hover{background-color: #F4C830;color: #56320B;}
+.verifical-login .login-body p{font-size:14px;color:#777777;text-align:center;height:65px;line-height:1.2em;}
+.verifical-login .login-body p a{color:#50a2f8;}
+.verifical-login .login-body p a:hover{color:#137bd3;}
+.verifical-login .login-footer{padding-right:8px;text-align:right;font-size:0;}
+.verifical-login .login-footer a{font-size:14px;color:#666666;padding:0 20px;}
+.verifical-login .login-footer a img{width: 12px;vertical-align: top;margin-top: 13px;margin-right: 4px;}
+.verifical-login .login-footer a .lock-bg{width: 12px;height: 14px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -216px 0px; display: inline-block;vertical-align: top;margin-top: 13px;margin-right: 2px;}
+.verifical-login .login-footer a:hover{color:#50a2f8;}
+.verifical-login .login-footer a:hover .lock-bg{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -216px -14px;}
+.verifical-login .login-footer i{width:1px;display:inline-block;vertical-align:middle;height:16px;background-color:#d7d9db;margin-top:-10px;}
+
+/* 账号密码登录 */
+.password-login .login-footer{padding-right:0px;text-align:right;font-size:0;}
+.password-login .login-footer a{font-size:14px;color:#666666;padding:0 20px;}
+.password-login .login-footer a .doubt-bg{width: 14px;height: 14px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -196px 0px; display: inline-block;vertical-align: top;margin-top: 14px;margin-right: 2px;}
+.password-login .login-footer a:hover{color:#50a2f8;}
+.password-login .login-footer a:hover .doubt-bg{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -196px -14px;}
+.password-login .login-footer i{width:1px;display:inline-block;vertical-align:middle;height:16px;background-color:#d7d9db;margin-top:-10px;}
+.password-login{padding-bottom:42px;}
+.password-login .input-box input{width:100%;}
+.password-login .input-box .btn-biyan{position:absolute;width:18px;height:10px;top:22px;right:14px;cursor:pointer;background:url(../images/popLogin/spirit-LgIcon.png) -112px -64px no-repeat;}
+.password-login .input-box .btn-biyan:hover{background:url(../images/popLogin/spirit-LgIcon.png) -112px -76px no-repeat;}
+.password-login .input-box .btn-biyan.btn-eye{background:url(../images/popLogin/spirit-LgIcon.png) -134px -64px no-repeat;}
+.password-login .input-box .btn-biyan.btn-eye:hover{background:url(../images/popLogin/spirit-LgIcon.png) -134px -76px no-repeat;}
+.password-login .forgit-password{text-align:right;padding-top:2px;}
+.password-login .forgit-password a{color:#666666;font-size:14px;}
+.password-login .forgit-password a:hover{color:#3296FA;}
+.password-login .login-body p{font-size:14px;color:#777777;text-align:center;height:65px;line-height:1.2em;}
+.password-login .login-body p a{color:#50a2f8;}
+.password-login .login-body p a:hover{color:#137bd3;}
+
+/* 重置密码 */
+.reset-password-login .login-body>button{margin:14px 0 16px;}
+.reset-password-login .login-body .select-country-box{width:136px;height:56px;line-height:56px;font-size:0;cursor:pointer;user-select:none;padding-left: 16px;box-sizing: border-box; border:1px solid #EBEDF0;border-radius: 4px;}
+.reset-password-login .login-body .select-country-box img{width:25px;display:inline-block;vertical-align:middle;margin-right:8px;margin-top:-2px;border-radius: 3px;}
+.reset-password-login .login-body .select-country-box span{font-size:16px;color:#333333;vertical-align:middle;margin-right:9px;font-family: Arial;}
+.reset-password-login .login-body .select-country-box .icon-pointer{width:9px;height:6px;display:inline-block;vertical-align:middle;background:url(../images/popLogin/spirit-LgIcon.png) -196px -69px no-repeat;}
+.reset-password-login .login-body .select-country-box.active{border-color: #F4C830;}
+.reset-password-login .login-body .select-country-box.active .icon-pointer{background-position: -205px -69px;}
+.reset-password-login .login-body li .btn-box {float: right;text-align: center;position: relative;}
+.reset-password-login .login-body li .btn-box span {display: inline-block;text-align: center;min-width: 90px;color: #3296FA;font-size: 14px;cursor: pointer;height: 54px;line-height: 54px;vertical-align: top;}
+.reset-password-login .login-body li .btn-get-code:before {content: "";width: 1px;height: 24px;background-color: #EBEDF0;position: absolute;left: 0;top: 50%;margin-top: -12px;}
+.reset-password-login .login-body input.input-code {width: 220px;}
+.reset-password-login .back-login{text-align: center;}
+.reset-password-login .back-login a{font-size: 14px;color: #3296FA;}
+.reset-password-login .back-login a:hover{color: #177ADD;}
+.reset-password-login{padding-bottom: 30px;}
+
+/* 完善资料 */
+.perfect-information .input-box input{width:100%;}
+.perfect-information .input-box input.surname-input{width:240px; }
+.perfect-information .input-box .j-surname{width: 200px!important;}
+.perfect-information .sex-box{position:absolute;right:4px;height:50px;line-height:50px;font-size:0;color:#333333;top:1px;white-space:nowrap;z-index: 2;}
+.perfect-information .sex-box .radio-box:last-child{margin-left:20px;}
+.perfect-information .sex-box .radio-box{font-size:16px;display: inline-block;height: 100%;position: relative;padding-left: 26px;}
+.perfect-information .sex-box .radio-box:before{content: "";width: 16px;height: 16px;background: url(../images/popLogin/spirit-LgIcon.png) -154px -64px no-repeat;position: absolute;left: 0px;top: 18px;}
+.perfect-information .sex-box .radio-box.selected:before{background: url(../images/popLogin/spirit-LgIcon.png) -172px -64px no-repeat; }
+.perfect-information .sex-box input{width:16px;height:16px;vertical-align:middle;margin-right:10px;margin-top:-2px;}
+.perfect-information .input-box .btn-biyan{position:absolute;width:18px;height:10px;top:22px;right:14px;cursor:pointer;background:url(../images/popLogin/spirit-LgIcon.png) -112px -64px no-repeat;}
+.perfect-information .input-box .btn-biyan:hover{background:url(../images/popLogin/spirit-LgIcon.png) -112px -76px no-repeat;}
+.perfect-information .input-box .btn-biyan.btn-eye{background:url(../images/popLogin/spirit-LgIcon.png) -134px -64px no-repeat;}
+.perfect-information .input-box .btn-biyan.btn-eye:hover{background:url(../images/popLogin/spirit-LgIcon.png) -134px -76px no-repeat;}
+.perfect-information .li-identity input{background:transparent;cursor:pointer;}
+.perfect-information .input-line s{width: 15px;height: 8px;background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -216px -64px;position: absolute;right: 16px;top: 24px;}
+.perfect-information .status-success s{background-position: -216px -75px;}
+.perfect-information .login-body .forbid-btn.btn-login{width:360px;height:50px;line-height:50px;text-align:center;background-color:#F4C830;border-radius:3px;font-size:16px;color:#56320B;cursor:pointer;}
+.perfect-information .login-body .forbid-btn.btn-login:hover{background:#D89F00;}
+.perfect-information .login-body .forbid-btn{width:360px;height:50px;color:#afb0b3;font-size:16px;line-height:50px;text-align:center;background-color:#ebedf0;border-radius:3px;cursor:not-allowed;}
+.perfect-information .login-body>button{margin:14px 0 30px;}
+.perfect-information .li-identity .identity-select-list-box{display:none;position:absolute;left:0;right:0;top:59px;z-index: 3; padding:10px 5px 10px 0;background-color:#ffffff;box-shadow:0px 10px 20px 0px rgba(162,177,202,0.4);border-radius:5px;border:solid 1px #ebedf0;}
+.perfect-information .li-identity .select-list{height:160px;overflow-y:scroll;}
+.perfect-information .li-identity .identity-select-list-box:before{content:"";position:absolute;left:25px;height:8px;width:12px;background:url(../images/popLogin/bg_dbx.png) 0 0 no-repeat;top:-8px;}
+.perfect-information .li-identity .select-list dd{color:#666666;font-size:14px;height:40px;line-height:40px;padding-left:20px;cursor:pointer;}
+.perfect-information .li-identity .select-list dd:hover{background:#FAFAFA;}
+/* 扫描登录 */
+.Scan-login-pop{width: 460px;padding-bottom: 42px;}
+.Scan-login-pop .Scan-title{font-size: 24px;font-weight: bold; color: #333;text-align: center;margin-bottom: 36px;}
+.Scan-login-pop .Scan-title img{width: 24px;vertical-align: top;margin-top: 4px;margin-right: 3px;}
+.Scan-login-pop .scanInfo-cent{position: relative;min-height: 300px;}
+.Scan-login-pop .scan-infoLeft{position: absolute;left: 100px; z-index: 0;}
+.Scan-login-pop .scan-infoLeft img{width: 200px;vertical-align: top;}
+.Scan-login-pop .scan-infoRight{position: relative;z-index: 1;}
+.Scan-login-pop .scan-infoRight.fadeInRight .scanCode-box{width: 170px;height: 170px;}
+.Scan-login-pop .scan-infoRight.fadeInRight .scanCode-txt{font-size: 14px;}
+.Scan-login-pop .scan-infoRight.scanUp2 .scanCode-txt{display: inline-block;}
+.Scan-login-pop .scan-infoRight .scanCode-box{width: 210px;height: 210px;margin: 0 auto; padding: 10px;box-sizing: border-box;border: 1px solid #EBEDF0;margin-bottom: 10px;position: relative;}
+.Scan-login-pop .scan-infoRight .scanCode-pop{width: 100%;height: 100%;background-color: rgba(255,255,255,0.98);position: absolute;left: 0;top: 0;padding-top: 64px;box-sizing: border-box;display: none;}
+.Scan-login-pop .scan-infoRight .scanCode-pop .eaCode-lose{display: none;}
+.Scan-login-pop .scan-infoRight .scanCode-pop p{font-size: 16px;color: #000;margin-bottom: 24px;text-align: center;}
+.Scan-login-pop .scan-infoRight .scanCode-pop .lose-button{text-align: center;}
+.Scan-login-pop .scan-infoRight .scanCode-pop .lose-scale{position: relative;overflow: hidden;-webkit-tap-highlight-color: transparent;z-index: 1;}
+.Scan-login-pop .scan-infoRight .scanCode-pop .lose-scale .waves-animation {background-color: #B88700;position: absolute;z-index: 0; border-radius: 50%;width: 25px;height: 25px;opacity: 0;transition: all 0.7s ease-out;transition-property: transform, opacity, -webkit-transform;-webkit-transform: scale(0);transform: scale(0);pointer-events: none}
+.Scan-login-pop .scan-infoRight .scanCode-pop .lose-button button{min-width: 80px;height: 36px;line-height: 36px;background-color: #F4C830;border-radius: 4px;text-align: center;padding: 0 10px;font-size: 16px;color: #56320B;outline: none; cursor: pointer;}
+.Scan-login-pop .scan-infoRight .scanCode-pop .lose-button button:hover{background-color: #D89F00;}
+.Scan-login-pop .scan-infoRight .scanCode-pop .scan-succeed{text-align: center;display: none;}
+.Scan-login-pop .scan-infoRight .scanCode-pop .scan-succeed img{width: 88px;vertical-align: top;}
+.Scan-login-pop .scan-infoRight .succeed-describe{display: none;text-align: center;}
+.Scan-login-pop .scan-infoRight .succeed-describe .succeedTxt{font-size: 16px;color: #333;padding-top: 6px;}
+.Scan-login-pop .scan-infoRight .succeed-describe .succeedLate{font-size: 14px;color: #666;}
+.Scan-login-pop .scan-infoRight.succeedTip .scanCode-pop{display: block;}
+.Scan-login-pop .scan-infoRight.succeedTip .succeed-describe{display: block;}
+.Scan-login-pop .scan-infoRight.succeedTip .scanCode-describe{display: none;}
+.Scan-login-pop .scan-infoRight.succeedTip .scanCode-pop .scan-succeed{display: block;}
+.Scan-login-pop .scan-infoRight.loseTip .scanCode-pop{display: block;}
+.Scan-login-pop .scan-infoRight.loseTip .eaCode-lose{display: block;}
+.Scan-login-pop .scan-infoRight .scanCode-box img{width: 100%;height: 100%;vertical-align: top;}
+.Scan-login-pop .scan-infoRight .scanCode-describe{text-align: center;}
+.Scan-login-pop .scan-infoRight .scanCode-txt{font-size: 16px;color: #666;text-align: center;}
+.Scan-login-pop .scan-infoRight .scanCode-txt em{font-style: normal;color: #3296FA;}
+.Scan-login-pop .login-footer{text-align: center;}
+.Scan-login-pop .login-footer .foot-txt{font-size: 14px;color: #666;margin-right: 12px;}
+.Scan-login-pop .login-footer .foot-late{width: 24px;height: 24px;display: inline-block;vertical-align: top;margin-top: 9px;margin-right: 6px;}
+.Scan-login-pop .login-footer .foot-late.WeChat-floor{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat 0px -40px;}
+.Scan-login-pop .login-footer .foot-late.WeChat-floor:hover{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat 0px -64px;}
+.Scan-login-pop .login-footer .foot-late.QQ-floor{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -24px -40px;}
+.Scan-login-pop .login-footer .foot-late.QQ-floor:hover{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -24px -64px;}
+.Scan-login-pop .login-footer .foot-late.Facebook-floor{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -48px -40px;}
+.Scan-login-pop .login-footer .foot-late.Facebook-floor:hover{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -48px -64px;}
+.Scan-login-pop .login-footer .foot-late.Twitter-floor{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -72px -40px;}
+.Scan-login-pop .login-footer .foot-late.Twitter-floor:hover{background: url(../images/poplogin/spirit-LgIcon.png) no-repeat -72px -64px;}
+/* 动画更改 */
+.g-login-box .login-body .animate-holder{position: absolute;top: 12px;left: 16px;font-size: 16px;color: #cccccc;pointer-events: none;transition: all 0.45s cubic-bezier(.23,1,.32,1);height: 32px;line-height: 32px;}
+.verifical-login .login-body .phone-holder{left: 16px;}
+.verifical-login .login-body .status-success .select-country-box .areacode-select-box{display: none;}
+.verifical-login .login-body .status-success .input-phone{width: 100%;}
+.verifical-login .login-body .status-success .phone-holder{left: 0;margin-top: -20px;font-size: 12px;}
+.verifical-login .login-body .status-success .phone-holder{margin-top: -20px;font-size: 12px;}
+.verifical-login .login-body .status-error .phone-holder{margin-top: -20px;font-size: 12px;}
+.verifical-login .login-body .status-ok .phone-holder{margin-top: -15px;font-size: 12px;}
+.verifical-login .login-body .status-empty .phone-holder{margin-top: 0;font-size: 15px;}
+.verifical-login .login-body > button{margin-top:0px!important;}
+.g-login-box .login-body .status-success .animate-holder {left: 16px;margin-top: -15px;font-size: 12px;}
+.g-login-box .login-body .status-error .animate-holder{margin-top: -15px;font-size: 12px;}
+.g-login-box .login-body .status-ok .animate-holder{margin-top: -15px;font-size: 12px;}
+.g-login-box .login-body .status-empty .animate-holder{margin-top: 0;font-size: 15px;}
+.long-language.btn-jump .login-body .forbid-btn{margin-top: 144px;}
+.g-login-box.long-language .btn-skip{height: 42px; line-height: 42px; text-align: center; top: 140px; border: 1px solid rgba(235, 237, 240, 1); border-radius: 3px; color: #333333; font-size: 16px;margin-top:20px;cursor:pointer;}
+.g-login-box.long-language .btn-skip:hover{background-color:#2d92e8;color:#fff;}
+.g-login-box.long-language .login-body .error-tips {margin-top: 12px !important;}
+.g-login-box .login-body .huakuabox .error-tips {margin-top: 12px !important;}
+/************隐藏google验证**************/
+.huakuabox {margin-top: 30px;}
+#huakuai .nc_scale {height: 40px;background: #fff;}
+#huakuai .nc_scale .scale_text .nc-lang-cnt {border: 1px solid #E6E8EB;border-radius:3px;}
+#huakuai .nc_scale .scale_text2 .nc-lang-cnt {border: none !important;border-radius: 3px;}
+#huakuai .nc_scale span {line-height: 38px;height: 38px;}
+#huakuai .nc_scale .btn_ok {width: 60px;border-bottom-right-radius: 3px;border-top-right-radius: 3px;}
+#huakuai .nc_scale .btn_slide {width: 60px;background: #E6E8EB;border-bottom-left-radius: 3px;border-top-left-radius: 3px;}
+.j-btn-loading {display: none;}
+/*加载效果*/
+.loading-pop{text-align:center;}
+.loading-pop .container .circle {height: 12px;width: 12px;border-radius: 50%;margin: 0 2px; display: inline-block;transform: scale(0);animation: bulge 1s infinite ease-in-out;}
+.loading-pop .container .circle:nth-child(1) {background-color: #fff;animation-delay: 0s;}
+.loading-pop .container .circle:nth-child(2) {background-color: #fff;animation-delay: .25s;}
+.loading-pop .container .circle:nth-child(3) {background-color: #fff;animation-delay: .50s;}
+@keyframes bulge {50% {transform: scale(1);}}
+/* 国家弹窗 */
+.areacode-select-box {width: 460px;position:absolute;z-index:1000;display:none;}
+.areacode-select-box .areacode-Info{width:400px;margin: 0 auto; padding-bottom: 10px;font-size:14px;background-color:#ffffff;box-shadow:0px 5px 10px 0px rgba(162,177,202,0.5);border:solid 1px #ebedf0;border-radius:10px;}
+.areacode-select-box .Search-areaCode{ margin: 10px 10px 20px;line-height: normal;position: relative;}
+.areacode-select-box .Search-areaCode:before{content: "";width: 14px;height: 14px;background: url(../images/poplogin/newImg/search-bg-icon.png) no-repeat center;background-size: 100% auto;position: absolute;left: 10px;top: 13px;}
+.areacode-select-box .Search-areaCode .areaSearch-tip{font-size: 14px;color: #B2B2B2;position: absolute;left: 34px;top: 10px;}
+.areacode-select-box .Search-areaCode .area-ipt{width: 100%;height: 40px;border-radius: 4px;font-size: 14px; border: 1px solid #EBEDF0;line-height: normal;background-color: #fff;padding-left: 34px;box-sizing: border-box;outline: none;}
+.areacode-select-box .Search-areaCode .area-ipt:focus{border-color: #F4C830 !important;color: #333;}
+.areacode-select-box .area-code-body .usual-title{font-size: 14px;color: #999;line-height: normal;padding-left: 20px;box-sizing: border-box;}
+.areacode-select-box .area-code-body{max-height:250px;min-height: 110px; margin-right:4px;overflow-y:scroll;}
+.areacode-select-box .area-code-body dd{height:41px;line-height:41px;padding-left:20px;color:#666666;font-size:14px; cursor:pointer;}
+.areacode-select-box .area-code-body dd:hover{background:#FAFAFA;}
+.areacode-select-box .area-code-body dd.on{background:#d9eeff;}
+.areacode-select-box .area-code-body dd.usualOn{background:#FFFAED;}
+.areacode-select-box .area-code-body dd span{height:41px;line-height:41px;color:#666666;font-size:14px;margin-right: 16px;float: left;}
+.areacode-select-box .area-code-body dd img{width:32px;height:21px;display:inline-block;vertical-align:middle;margin-right:10px;}
+.areacode-select-box .area-code-body dd em{font-style: normal;}
+.areacode-select-box .No-AreaData{font-size: 14px;text-align: center;color: #999;}
+/* 新增动画效果 */
+.btn-login {position: relative;overflow: hidden;-webkit-tap-highlight-color: transparent;z-index: 1;}
+.btn-login .j-btn-nr{width: 100%;height: 100%;display: inline-block;}
+.btn-login .waves-animation {background-color: #B88700;position: absolute;z-index: -1; border-radius: 50%;width: 25px;height: 25px;opacity: 0;transition: all 0.7s ease-out;transition-property: transform, opacity, -webkit-transform;-webkit-transform: scale(0);transform: scale(0);pointer-events: none}
+.animated {animation-duration: 1s;animation-fill-mode: both;}
+.fadeInLeft {animation-name: fadeInLeft;}
+.fadeInRight {animation-name: fadeInRight;}
+.scanUp {animation-name: scanUp;}
+.scanUp2 {animation-name: scanUp2;}
+@keyframes fadeInLeft {
+	from {opacity: 0;transform: none;}
+	to {opacity: 1;transform: translate3d(-100px, 0, 0);}
+}
+@keyframes fadeInRight {
+	from {opacity: 0;transform: none;}
+	to {opacity: 1;transform: translate3d(100px, 30px, 0);}
+}
+@keyframes scanUp {
+	from {opacity: 1;transform: translate3d(-100px, 0, 0);}
+	to {opacity: 0;transform: translate3d(0, 0, 0);}
+}
+@keyframes scanUp2 {
+	from {transform: translate3d(100px, 25px, 0);}
+	to {transform: translate3d(0, 0, 0);}
+}

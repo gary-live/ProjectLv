@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        @charset "utf-8";
+        *{margin:0px; padding:0px;border:0px;}
+        body{font-size:12px; color:#000; font-family:"PingFang SC", "Microsoft YaHei"; background:#f2f5f8;position:relative; z-index:1;}
+        ul,li{ list-style:none;}
+        img{border:0;}
+        a{text-decoration:none; color:#000;}/*连接默认的颜色变化*/
+        a:hover{ text-decoration:none}
+        h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal; margin:0;padding:0;}
+        .clear{clear:both;height:0;overflow:hidden;}
+        .cl:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+        .clearfloat:after{content: '';display: block;width: 0;height: 0;clear: both;}
+        .clearfloat{*zoom: 1}
+        .cl { zoom: 1; } 
+     </style>
+     <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div class="pop-login-bg" style="display: block;">
+        <!-- 密码登录 -->
+        <div class="j-password-login password-login g-login-box [$AddCss]" style="left: 186.5px; top: 192.34px; display: none;">
+            <div class="login-inner">
+                <span class="login-close-btn"></span>
+                <div class="login-top-rght">
+                    <span class="login-App-scan">APP扫码登录</span>
+                    <span class="login-Qr-icon"></span>
+                </div>
+                <h4 class="login-title">账号密码登录</h4>
+                <div class="third-party-login">
+                    <ul class="third-party-ul cl">
+                        <li class="third-WeChat third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">微信登入</span>
+                            </a>
+                        </li>
+                        <li class="third-QQ third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">QQ登入</span>
+                            </a>
+                        </li>
+                        <li class="third-Facebook third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">Facebook登入</span>
+                            </a>
+                        </li>
+                        <li class="third-Twitter third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">Twitter登入</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-line">
+                    <span class="line-caption">账号密码登录</span>
+                </div>
+                <div class="login-body">
+                    <ul>
+                        <li class="input-box input-line">
+                            <span class="animate-holder">手机号/邮箱</span>
+                            <input class="input-account" maxlength="100" type="text">
+                        </li>
+                        <li class="error-tips tip-acount" style="display: none;">账号未注册,<span class="zhuce"
+                                onclick="zhuce()">前往注册</span></li>
+                        <li class="input-box input-line">
+                            <span class="animate-holder">密码</span>
+                            <input class="input-password" onkeydown="selectKey('mmdl')" maxlength="20" type="text"
+                                autocomplete="off" onpaste="return !1" oncopy="return !1" oncut="return !1"
+                                oncontextmenu="return !1"><span class="btn-biyan"></span>
+                        </li>
+                        <li class="error-tips tip-code"></li>
+                        <li class="forgit-password"><a href="javascript:;" onclick="loginMobile('zhmm')">忘记密码</a></li>
+                    </ul>
+                    <button class="forbid-btn j-zhmm" onclick="normal()">
+                        <span class="j-btn-nr">登录</span>
+                        <span class="loading-pop j-btn-loading">
+                            <span class="container">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                            </span>
+                        </span>
+                    </button>
+                    <p style="display:none;">登录即代表您同意<a href="https://www.fxeye.com/Terms.html" target="_blank">《外汇天眼用户服务协议》</a></p>
+                </div>
+                <div class="login-footer">
+                    <a onclick="loginMobile()" href="javascript:;">
+                        <s class="doubt-bg"></s>
+                        <span>验证码登录</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 重置密码 -->
+        <div class="reset-password-login password-login g-login-box [$AddCss]" style="display: none; left: 186.5px; top: 192.34px;">
+            <div class="login-inner">
+                <span class="login-close-btn"></span>
+                <h4 class="login-title">重置密码</h4>
+                <div class="login-body">
+                    <ul>
+                        <li class="input-box cl">
+                            <div class="modify-left resetWord-Phone">
+                                <div class="select-country-box Select-Area" id="resetMode">
+                                    <img class="flag resetFlag" data-country="156" data-flag="https://img.fx696.com/flag/7d8833382673bab2/CN.png_wiki-template-global" src="https://img.fx696.com/flags/CN.png_wiki-template-global">
+                                    <span class="area-code resetCode">0086</span>
+                                    <i class="icon-pointer"></i>
+                                </div>
+                            </div>
+                            <div class="modify-right">
+                                <span class="animate-holder phone-holder">手机号</span>
+                                <input class="input-phone" id="15813-1" maxlength="20" type="text" autocomplete="off">
+                            </div>
+                        </li>
+                        <li class="error-tips tip-phone" data-tip="手机号有误" style="display: none;"></li>
+
+                        <li class="input-box input-line">
+                            <span class="animate-holder">验证码</span>
+                            <input class="input-code" maxlength="8" type="text" autocomplete="off" onkeydown="selectKey('yzm')">
+                            <div class="btn-box">
+                                <span class="btn-get-code" data-yzm="验证码" data-second="秒" data-cw="手机号有误" data-tip="重新获取">验证码</span>
+                            </div>
+                        </li>
+                        <li class="error-tips tip-code" style="display: none;"></li>
+
+                        <li class="input-box input-line">
+                            <span class="animate-holder">密码</span>
+                            <input class="input-password" maxlength="20" type="password" data-tip="密码有误"
+                                autocomplete="off" onpaste="return !1" oncopy="return !1" oncut="return !1"
+                                oncontextmenu="return !1"><span class="btn-biyan"></span>
+                        </li>
+                        <li class="error-tips tip-password1"></li>
+                        <li class="input-box input-line">
+                            <span class="animate-holder">密码</span>
+                            <input class="input-repassword" maxlength="20" onkeydown="selectKey('czmm')" type="password"
+                                data-bt="两次密码不一致" data-tip="密码有误" autocomplete="off" onpaste="return !1"
+                                oncopy="return !1" oncut="return !1" oncontextmenu="return !1"><span
+                                class="btn-biyan"></span>
+                        </li>
+                        <li class="error-tips tip-password2"></li>
+                    </ul>
+                    <button class="forbid-btn j-czmm" onclick="setPwd()">
+                        <span class="j-btn-nr">确认</span>
+                        <span class="loading-pop j-btn-loading">
+                            <span class="container">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                            </span>
+                        </span>
+                    </button>
+                </div>
+                <div class="back-login">
+                   <a href="javascript:;">< 返回登录</a>
+                </div>
+            </div>
+        </div>
+        <!-- 验证码登录 -->
+        <div class="verifical-login g-login-box [$AddCss]" style="display: none;">
+            <div class="login-inner">
+                <span class="login-close-btn"></span>
+                <div class="login-top-rght">
+                    <span class="login-App-scan">APP扫码登录</span>
+                    <span class="login-Qr-icon"></span>
+                </div>
+                <h4 class="login-title" data-zhmm="重置密码" data-dl="验证码登录">登录到外汇天眼</h4>
+                <div class="third-party-login">
+                    <ul class="third-party-ul cl">
+                        <li class="third-WeChat third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">微信登入</span>
+                            </a>
+                        </li>
+                        <li class="third-QQ third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">QQ登入</span>
+                            </a>
+                        </li>
+                        <li class="third-Facebook third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">Facebook登入</span>
+                            </a>
+                        </li>
+                        <li class="third-Twitter third-Li">
+                            <a href="javascript:;">
+                                <span class="gt-Txt">Twitter登入</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="login-line">
+                    <span class="line-caption">验证码登录</span>
+                </div>
+                <div class="login-body">
+                    <ul>
+                        <li class="input-box cl">
+                            <div class="modify-left Cellphone-rate1">
+                                <div class="select-country-box Select-Area" id="ActualBox">
+                                    <img class="flag phoneFlag" data-country="156" data-flag="https://img.fx696.com/flag/7d8833382673bab2/CN.png_wiki-template-global" src="https://img.fx696.com/flags/CN.png_wiki-template-global">
+                                    <span class="area-code phoneCode">0086</span>
+                                    <i class="icon-pointer"></i>
+                                </div>
+                            </div>
+                            <div class="modify-right">
+                                <span class="animate-holder phone-holder">手机号</span>
+                                <input class="input-phone" id="15813-1" maxlength="20" type="text" autocomplete="off">
+                            </div>
+                        </li>
+                        <li class="error-tips tip-phone" data-tip="手机号有误" style="display: none;"></li>
+
+                        <li class="input-box input-line">
+                            <span class="animate-holder">验证码</span>
+                            <input class="input-code" maxlength="8" type="text" autocomplete="off" onkeydown="selectKey('yzm')">
+                            <div class="btn-box">
+                                <span class="btn-get-code" data-yzm="验证码" data-second="秒" data-cw="手机号有误"
+                                    data-tip="重新获取">验证码</span>
+                                <span class="btn-skip" onclick="register()" style="display: none;">跳过</span>
+                            </div>
+
+                        </li>
+                        <li class="error-tips tip-code" style="display: none;"></li>
+
+                        <!--<li class="input-box" style="border-bottom:none;height:40px;">
+            </li>
+            <li class="error-tips tip-huakuai" data-tip="请拖动滑块"></li>-->
+                    </ul>
+                    <div class="huakuabox">
+                        <div id="huakuai" data-lang="zh-cn" class="nc-container" data-nc-idx="1" style="display: none;">
+                            <div id="nc_1_wrapper" class="nc_wrapper">
+                                <div id="nc_1_n1t" class="nc_scale">
+                                    <div id="nc_1__bg" class="nc_bg"></div>
+                                    <span id="nc_1_n1z" class="nc_iconfont btn_slide"></span>
+                                    <div id="nc_1__scale_text" class="scale_text slidetounlock"><span
+                                            class="nc-lang-cnt" data-nc-lang="_startTEXT">拖动滑块，发送验证码</span></div>
+                                    <div id="nc_1_clickCaptcha" class="clickCaptcha">
+                                        <div class="clickCaptcha_text">
+                                            <b id="nc_1__captcha_text" class="nc_captch_text"></b>
+                                            <i id="nc_1__btn_2" class="nc_iconfont nc_btn_2 btn_refresh"></i>
+                                        </div>
+                                        <div class="clickCaptcha_img"></div>
+                                        <div class="clickCaptcha_btn"></div>
+                                    </div>
+                                    <div id="nc_1_imgCaptcha" class="imgCaptcha">
+                                        <div class="imgCaptcha_text"><input id="nc_1_captcha_input" maxlength="6"
+                                                type="text" style="ime-mode:disabled"></div>
+                                        <div class="imgCaptcha_img" id="nc_1__imgCaptcha_img"></div>
+                                        <i id="nc_1__btn_1" class="nc_iconfont nc_btn_1 btn_refresh"
+                                            onclick="document.getElementById('nc_1__imgCaptcha_img').children[0].click()"></i>
+                                        <div class="imgCaptcha_btn">
+                                            <div id="nc_1__captcha_img_text" class="nc_captcha_img_text"></div>
+                                            <div id="nc_1_scale_submit" class="nc_scale_submit"></div>
+                                        </div>
+                                    </div>
+                                    <div id="nc_1_cc" class="nc-cc"></div>
+                                    <i id="nc_1__voicebtn" tabindex="0" role="button" class="nc_voicebtn nc_iconfont"
+                                        style="display:none"></i>
+                                    <b id="nc_1__helpbtn" class="nc_helpbtn"><span class="nc-lang-cnt"
+                                            data-nc-lang="_learning">了解新功能</span></b>
+                                </div>
+                                <div id="nc_1__voice" class="nc_voice"></div>
+                            </div>
+                        </div>
+                        <div class="error-tips tip-huakuai" data-tip="请拖动滑块" style="display: none;"></div>
+                    </div>
+                    <button class="forbid-btn j-yzmdl" onclick="smsLogin()" data-dl="登录" data-zhmm="确认">
+                        <span class="j-btn-nr">登录</span>
+                        <span class="loading-pop j-btn-loading">
+                            <span class="container">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                            </span>
+                        </span>
+                    </button>
+                    <button class="skip-button">跳过</button>
+                    <p style="display:none;">登录即代表您同意<a href="https://www.fxeye.com/Terms.html" target="_blank">《外汇天眼用户服务协议》</a></p>
+                </div>
+                <div class="login-footer">
+                    <a onclick="accPwd()" href="javascript:;">
+                        <s class="lock-bg"></s>
+                        <span>账号密码登录</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- 完善资料 -->
+        <div class="perfect-information g-login-box [$AddCss]" style="display: none;">
+            <div class="login-inner">
+                <span class="login-close-btn"></span>
+                <h4 class="login-title">完善资料</h4>
+                <div class="login-body">
+                    <ul>
+                        <li class="input-box input-line">
+                            <span class="animate-holder">姓氏</span>
+                            <input type="text" class="j-surname" id="15813-6" autocomplete="off" maxlength="10"
+                                data-tip="姓氏有误">
+                            <div class="sex-box">
+                                <div class="sex-box">
+                                    <div class="radio-box selected" data-value="1">男</div>
+                                    <div class="radio-box" data-value="0">女</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="error-tips"></li>
+                        <li class="input-box input-line">
+                            <span class="animate-holder">密保邮箱</span>
+                            <input type="text" class="j-email" maxlength="100" id="15813-7" autocomplete="off"
+                                data-tip="邮箱格式有误">
+                        </li>
+                        <li class="error-tips"></li>
+                        <li class="input-box input-line">
+                            <span class="animate-holder">密码</span>
+                            <input class="input-password" data-tip="密码有误" id="15813-8" maxlength="20" type="password"
+                                autocomplete="off" onpaste="return !1" oncopy="return !1" oncut="return !1"
+                                oncontextmenu="return !1"><span class="btn-biyan"></span>
+                        </li>
+                        <li class="error-tips"></li>
+                        <li class="input-box li-identity input-line">
+                            <s></s>
+                            <span class="animate-holder">身份</span>
+                            <input class="input-identity" type="text" placeholder="" readonly="readonly">
+                            <div class="identity-select-list-box">
+                                <dl class="select-list">
+                                    <dd data-type="900">交易者</dd>
+                                    <dd data-type="100">交易商</dd>
+                                    <dd data-type="300">IB</dd>
+                                    <dd data-type="600">从业者</dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="error-tips j-registerError"></li>
+                    </ul>
+                    <button class="forbid-btn j-zczh" onclick="registerLogin()">
+                        <span class="j-btn-nr">确认</span>
+                        <span class="loading-pop j-btn-loading">
+                            <span class="container">
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                                <span class="circle"></span>
+                            </span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+       <!-- 扫描登陆 -->
+        <div class="Scan-login-pop g-login-box [$AddCss]" style="display: block;">
+            <div class="login-inner">
+                <span class="login-close-btn"></span>
+                <div class="login-top-rght">
+                    <span class="login-App-scan">验证码登录</span>
+                    <span class="login-note-icon"></span>
+                </div>
+                <h4 class="Scan-title">
+                    <img src="./images/poplogin/newImg/scan-bg-icon.png" alt="">
+                    <span>APP扫码登录</span>
+                </h4>
+                <div class="clearfloat scanInfo-cent">
+                    <div class="scan-infoLeft animated fadeInLeft">
+                        <img src="./images/poplogin/newImg/phone-bg-icon.png" alt="">
+                    </div>
+                    <div class="scan-infoRight animated fadeInRight">
+                        <div class="scanCode-box">
+                            <div class="scanCode-pop">
+                                <!-- 扫描失败 -->
+                                <div class="eaCode-lose">
+                                    <p>二维码失效</p>
+                                    <div class="lose-button">
+                                        <button class="lose-scale">点击刷新</button>
+                                    </div>
+                                </div>
+                                <!-- 扫描成功 -->
+                                <div class="scan-succeed">
+                                    <img src="./images/poplogin/newImg/scan-succeed.png" alt="">
+                                </div>
+                            </div>
+                            <img src="https://www.fxeye.com/Jys/GetQrCode?code=202004196524897145&type=article" alt="">
+                        </div>
+                        <div class="scanCode-describe">
+                            <div class="scanCode-txt">
+                                <span>使用</span>
+                                <a href="javascript:;">
+                                    <em>外汇天眼APP</em>
+                                </a>
+                            </div>
+                            <div class="scanCode-txt">扫码登陆</div>
+                        </div>
+                        <!-- 成功提示语 -->
+                        <div class="succeed-describe">
+                            <div class="succeedTxt">扫码成功</div>
+                            <div class="succeedLate">请在手机上确认登录</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="login-footer">
+                    <span class="foot-txt">第三方登录</span>
+                    <a href="javascript:;" class="foot-late WeChat-floor"></a>
+                    <a href="javascript:;" class="foot-late QQ-floor"></a>
+                    <a href="javascript:;" class="foot-late Facebook-floor"></a>
+                    <a href="javascript:;" class="foot-late Twitter-floor"></a>
+                </div>
+            </div>
+        </div>
+        <!-- 国家区域选择 -->
+        <div class="areacode-select-box">
+            <div class="areacode-Info">
+                <div class="Search-areaCode">
+                    <span class="areaSearch-tip">搜索</span>
+                    <input type="text" class="area-ipt">
+                </div>
+                <div class="area-code-body">
+                    <div class="usual-selcet">
+                        <div class="usual-title">常用</div>
+                        <dl>
+                            <dd class="cl usualOn">
+                                <img class="j-country-flag" data-country="036" data-flag="https://img.fx696.com/flag/045fe4098d24356d/AU.png_wiki-template-global" src="https://img.fx696.com/flag/045fe4098d24356d/AU.png_wiki-template-global">
+                                <em>澳大利亚</em>
+                                <span>0061</span>
+                            </dd>
+                            <dd class="cl">
+                                <img class="j-country-flag" data-country="818" data-flag="https://img.fx696.com/flag/db390907541a234b/EG.png_wiki-template-global" src="https://img.fx696.com/flag/db390907541a234b/EG.png_wiki-template-global">
+                                <em>埃及</em>
+                                <span>0020</span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="areaCode-Pop">
+                        <div class="usual-title">全部</div>
+                        <dl>
+                            <dd class="cl">
+                                <img class="j-country-flag" data-country="036" data-flag="https://img.fx696.com/flag/045fe4098d24356d/AU.png_wiki-template-global" src="https://img.fx696.com/flag/045fe4098d24356d/AU.png_wiki-template-global">
+                                <em>澳大利亚</em>
+                                <span>0061</span>
+                            </dd>
+                            <dd class="cl">
+                                <img class="j-country-flag" data-country="818" data-flag="https://img.fx696.com/flag/db390907541a234b/EG.png_wiki-template-global" src="https://img.fx696.com/flag/db390907541a234b/EG.png_wiki-template-global">
+                                <em>埃及</em>
+                                <span>0020</span>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dd class="cl">
+                                <img src="https://www.fxeye.com/Content/images/langs/zh-cn.png" alt="">
+                                <em>中国</em>
+                                <span>0086</span>
+                            </dd>
+                            <dd class="cl">
+                                <img src="https://www.fxeye.com/Content/images/langs/zh-cn.png" alt="">
+                                <em>中国</em>
+                                <span>0086</span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- 无数据 -->
+                    <!-- <div class="No-AreaData">
+                        <span>未搜索到结果</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/jquery-1.8.3.min.js"></script>
+<script src="https://www.fxeye.com/Content/js/jquery.nicescroll.min.js?ts=2020041601-0.04.11"></script>
+<script src="./js/fwLogin.js"></script>
+<script>
+    $(function() {
+        var timeOut = setTimeout(function() {
+            $(".scan-infoLeft").removeClass("fadeInLeft").addClass("scanUp");
+            $(".scan-infoRight").removeClass("fadeInRight").addClass("scanUp2");
+        },3000);
+        var time = null;
+        $(".scanCode-box").mouseenter(function() {
+            timer = setTimeout(function(){
+                $(".scan-infoLeft").stop().removeClass("scanUp").addClass("fadeInLeft");
+                $(".scan-infoRight").stop().removeClass("scanUp2").addClass("fadeInRight");
+            },300);
+        });
+        $(".scanCode-box").mouseleave(function(){
+            if(timer){
+                clearTimeout(timer);
+            }
+            $(".scan-infoLeft").removeClass("fadeInLeft").addClass("scanUp");
+            $(".scan-infoRight").removeClass("fadeInRight").addClass("scanUp2");
+        });
+    })
+</script>
+</html>
