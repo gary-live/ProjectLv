@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <title>天眼实勘</title>
+    <link type="text/css" rel="stylesheet" href="reset.css" />
+    <link type="text/css" rel="stylesheet" href="swiper.min.css" />
+    <link type="text/css" rel="stylesheet" href="main.css" />
+    <script type="text/javascript" src="fontSize.js"></script>
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script src="swiper.min.js"></script>
+</head>
+
+<body>
+<div id="compiled" style="display: none;">
+    <div style="overflow-y: auto; position: relative;">
+        <!-- 焦点图 -->
+        <div class="slideBox" id="slideBox">
+            <!-- vr -->
+            <div class="slide-item" id="slide_vr">
+                <div class="bd swiper-container">
+                    <div class="swiper-wrapper">
+                    </div>
+                    <div class="swiper-pagination hd ">
+
+                    </div>
+                </div>
+            </div>
+            <!-- 视频 -->
+            <div class="slide-item" id="slide_video">
+                <div class="bd swiper-container">
+                    <div class="swiper-wrapper">
+                    </div>
+                    <div class="swiper-pagination hd ">
+
+                    </div>
+                </div>
+            </div>
+            <!-- 图片 -->
+            <div class="slide-item" id="slide_pic">
+                <div class="bd swiper-container">
+                    <div class="swiper-wrapper">
+                    </div>
+                    <div class="swiper-pagination hd ">
+
+                    </div>
+                </div>
+            </div>
+            <div id="banner-navBox" class="banner-nav" style="display: none;">
+
+            </div>
+            <div class="seal-box" id="seal_area">
+            </div>
+        </div>
+        <!-- 标题部分 -->
+        <div class="header-box">
+        </div>
+        <div class="content-box">
+        </div>
+        <!-- 交易商部分 -->
+        <div class="jysbox">
+            <h3 class="titbox">
+                <span></span>
+            </h3>
+            <div class="ss_list">
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="before_compile">
+    <img src="before_compile.png" alt="">
+</div>
+<script type="text/javascript">
+            function LoadData() {
+                doLoadData(doGetContent(), doGetDealers());
+            };
+            LoadData();
+
+            function doLoadData(content, dealers) {
+                if (content) { //主题内容
+                    var str_banner = "",
+                        video_banner = "",
+                        vr_banner = "",
+                        banner_nav = "",
+                        seal_pic = "",
+                        str_title = "",
+                        str_con = "",
+                        str_dealer = "";
+                    if (Array.isArray(content.banner_vr) && content.banner_vr.length>0) {//加载vr
+                        content.banner_vr.forEach(function(item, index, arr) {
+                            vr_banner += '<div class="swiper-slide Vr-banner" data-vr="'+index+'"><a href="javascript:;"><img class="video-poster" src="'+item+'"/><div class="icon-box"><span class="icon-vr"></span></div></a></div>';
+                        });
+                        $("#slide_vr").find(".swiper-wrapper").html(vr_banner);
+                        banner_nav += '<span class="nav-btn">VR</span>';
+                        $("#slide_video").hide();
+                        $("#slide_pic").hide();
+                    }else{
+                        $("#slide_vr").remove();
+                    }
+                    if (Array.isArray(content.banner_video) && content.banner_video.length>0) {//加载video
+                        content.banner_video.forEach(function(item, index, arr) {
+                            video_banner += '<div class="swiper-slide Video-banner" data-video="'+index+'"><a href="javascript:;"><img class="video-poster" src="'+item+'"/><img class="icon-player" src="icon_playerbegin.png" alt=""> </a></div>';
+                        });
+                        $("#slide_video").find(".swiper-wrapper").html(video_banner);
+                        banner_nav += '<span class="nav-btn nav-btn1">'+content.bannerName_video+'</span>';
+                        $("#slide_pic").hide();
+                    }else{
+                        $("#slide_video").remove();
+                    }
+                    if (Array.isArray(content.explor_banner) && content.explor_banner.length>0) { //加载banner
+                        content.explor_banner.forEach(function(item, index, arr) {
+                            str_banner += '<div class="swiper-slide Picture-banber" data-picture="'+index+'"><a href="javascript:;"><img src="' + item + '"/></a></div>';
+                        });
+                        $("#slide_pic").find(".swiper-wrapper").html(str_banner);
+                        banner_nav += '<span class="nav-btn">'+content.bannerName_pic+'</span>';
+                    }else{
+                        $("#slide_pic").remove();
+                    }
+                    $("#banner-navBox").html(banner_nav);
+                    if($("#banner-navBox span").length<2){
+                        $("#banner-navBox").remove();
+                    }else{
+                        $("#banner-navBox").show().find('span').eq(0).addClass('on');
+                    }
+                    seal_pic += '<img src="'+ content.seal_pic +'">';
+                    $("#seal_area").html(seal_pic); //渲染印章
+
+                    str_title += '<h1><img src="' + content.explor_logo + '">' + content.explor_name + '</h1><div class="icon-box">';
+                    if (content.explor_type) {
+                        str_title += '<div><span class="icon-level-'+content.explor_type+'">'+content.explor_level+'</span></div>'
+                    }
+                    if(Array.isArray(content.banner_vr) && content.banner_vr.length>0){
+                        str_title += '<div><span class="icon-vr">VR</span></div>'
+                    }
+                    str_title += '<div class="address-div" style="background:none;padding-left:0;">';
+                    if (content.explor_flag) {
+                        str_title += '<img src="'+ content.explor_flag +'">';
+                    }
+                    if (content.explor_country) {
+                        str_title += '<span class="icon-address">' + content.explor_country + '</span>';
+                    }
+                    str_title += '</div>';
+                    str_title += '</div><p class="time">'+content.explorTit_time+'：' + content.explor_time ;
+                    if (content.explor_person) {
+                        str_title += '<span class="icon-person">'+content.explorTit_person+'：'+content.explor_person+'</span>';
+                    }
+                    str_title += '</p>';
+                    $(".header-box").html(str_title); //渲染主题标题
+                    str_con += content.explor_con;
+                    $(".content-box").html(str_con); //渲染主题内容
+                    holderImg();
+                } else {
+                    alert("加载数据失败！");
+                    return !1;
+                };
+
+                if (dealers.length > 0) { //相关交易商信息
+                    $(".jysbox").find(".titbox span").html(content.traderTit_info);
+                    dealers.forEach(function(item, index, arr) {
+                        str_dealer += '<li class="last trader-list" data-lex="'+index+'"><a href="javascript:;" style="display: block;"><span class="span_tj sp_1" style="background:' + item.dealer_statusColor + ';">' + item.dealer_statusTxt + '</span><img src="';
+                        str_dealer += item.dealer_logoUrl + '" class="lgs"/><div class="list_rt"><h4>' + item.dealer_name + '</h4><p class="p1"><span>'+content.eyeTit_score+'<em>' + item.dealer_score + '</em></span></p><p class="p2">' + item.dealer_keyWords.replace(/;/g, '&nbsp;|&nbsp;') + '</p></div><div style="clear: both;"></div></a></li>';
+                    });
+                    $(".jysbox").find('ul').html(str_dealer);
+                } else {
+                    $(".jysbox").hide();
+                }
+                $("#before_compile").hide().siblings('#compiled').show();
+                // $("#slideBox").show();
+                ban_scroll();
+                // slide小于2时隐藏分页
+                if (Array.isArray(content.banner_vr) && content.banner_vr.length<2) {
+                    $("#slide_vr .swiper-pagination").remove();
+                }
+                if (Array.isArray(content.banner_video) && content.banner_video.length<2) {
+                    $("#slide_video .swiper-pagination").remove();
+                }
+                if (Array.isArray(content.explor_banner) && content.explor_banner.length<2) {
+                    $("#slide_pic .swiper-pagination").remove();
+                }
+                $(".header-box h1 img").on("error", function() {
+                    $(this).attr("src", "logo_default.png")
+                });
+                $(".ss_list img").on("error", function() {
+                    $(this).attr("src", "default.png")
+                });
+                $("#slideBox img").on("error", function() {
+                    $(this).attr("src", "banner_default.png")
+                });
+                $("#seal_area img").on("error", function() {
+                    $(this).attr("src", "pic_seal.png")
+                });
+                $(".address-div img").on("error", function() {
+                    $(this).remove();
+                });
+            };
+            var oriImages;
+            function ReplaceImg() {
+                var listimg = $(".content-box img");
+                var listimgshuzu = [];
+                if (listimg != undefined) {
+                    $.each(listimg, function(index, item) {
+                        var src = $(item).attr("src");
+                        if (src != undefined && src != "") {
+
+                            listimgshuzu.push(src);
+                        }
+                    });
+                }
+                oriImages = listimgshuzu;
+                return listimgshuzu;
+            }
+            function getImage(){// app获得默认图
+                return oriImages;
+            }
+            function holderImg() {
+                var ori_src = ReplaceImg();
+                var conimgs = $(".content-box img");
+                if (conimgs != undefined) {
+                    Array.prototype.forEach.call(conimgs,function(item,index){
+                        $(item).attr("src", "moren.png");
+                        $(item).attr("num", index);
+                    })
+                };
+                var ori_imgs = [];
+                for (var i = 0; i < conimgs.length; i++) {
+                    (function(i) {
+
+                        ori_imgs[i] = new Image();
+                        ori_imgs[i].onload = function(){
+                            ori_imgs[i].onload = null;
+                            $(conimgs[i]).replaceWith(this);
+                        };
+                        ori_imgs[i].src = ori_src[i];
+                        $(ori_imgs[i]).attr("num", i);
+                    })(i);
+                }
+            }
+            $(document).on("click", ".content-box img", function() {
+                var str = "http://tt.cngold.com.cn?imgnum=" + $(this).attr("num");
+                console.log(str);
+            });
+
+            $(document).on("click", ".swiper-wrapper .Vr-banner", function() {
+                console.log( "Vr-" + $(this).attr("data-vr") );
+            });
+            $(document).on("click", ".swiper-wrapper .Video-banner", function() {
+                console.log( "Video-" + $(this).attr("data-video") );
+            });
+            $(document).on("click", ".swiper-wrapper .Picture-banber", function() {
+                console.log( "Banner-" + $(this).attr("data-picture") );
+            });
+            $(document).on("click", ".trader-list", function() {
+                console.log( "trader-" + $(this).attr("data-lex") );
+            });
+
+            
+
+            function doGetContent() {
+                var content = {
+                    "banner_vr":["pic.jpg","video.png"],
+                    "banner_video":["video.png"],
+                    "explor_banner": ["video.png", "http://img.fx960.com/market/2018106004336384/FXM2018106004336384_821830.jpg_tyjs-pic"], //实勘banner图片地址
+                    "explor_name": "Amana · 阿曼那资本", //实勘主题名字
+                    "explor_logo": "icon_logo.png", //实勘主题logo
+                    "explor_level": "精品", //实勘主题级别（精品、差评等）
+                    "explor_type":1,
+                    "explor_country": "中国", //实勘国家
+                    "explor_city": "上海", //实勘城市
+                    "explor_person": "yuxi", //实勘人
+                    "explor_time": "2018/01/010 22:00:00", //实勘时间
+                    "seal_pic": "", //盖章
+                    "explor_flag": "http://www.wikifx.com/Contentgj/images/langs/en.png", //国旗
+                    "explor_con": '<p>FFAJ成立于1989年，它是为管理日本期货市场而成立的到第二季度末，监管机构有141名成员，比上一季度末少三名。FFAJ成立于1989年，它是为管理日本期货市场而成立的，到第二季度末，监管机构有141名成员，比上一季度末少三名。</p><div class="pic"><img src="123http://wzimg.fx960.com/wechat/2018/08/FXR_60b3a7cec32747d68115627f4529fdd3.jpg-hy_list_articlepic" alt=""></div><p>FFAJ成立于1989年，它是为管理日本期货市场而成立的到第二季度末，监管机构有141名成员，比上一季度末少三名。FFAJ成立于1989年，它是为管理日本期货市场而成立的，到第二季度末，监管机构有141名成员，比上一季度末少三名。</p>',
+                    "explorTit_person":"实勘人",
+                    "explorTit_time":"实勘时间",
+                    "eyeTit_score":"天眼评分",
+                    "traderTit_info":"交易商信息",
+                    "bannerName_video":"视频",
+                    "bannerName_pic":"图片",
+
+                };
+                return content;
+            };
+
+            function doGetDealers() {
+                var dealers = [
+                    { "dealer_href": "jys/Index.html?traderCode=2791535487&appAction=#goToAppTrader", "dealer_logoUrl": "http://eimgjys.fx960.com/logo/2791535487/FXT_2791535487_400x226.png_fxeye-template-global123", "dealer_statusTxt": "监管中", "dealer_statusColor": "#2BB351", "dealer_name": "CLMFX熙伦国际", "dealer_score": "5.62", "dealer_keyWords": "5-10年;投资咨询牌照;主标MT4;只做中国市场" },
+                    { "dealer_href": "jys/Index.html?traderCode=2791535487&appAction=#goToAppTrader", "dealer_logoUrl": "http://eimgjys.fx960.com/logo/2791535487/FXT_2791535487_400x226.png_fxeye-template-global", "dealer_statusTxt": "监管中", "dealer_statusColor": "#2BB351", "dealer_name": "CLMFX熙伦国际", "dealer_score": "5.62", "dealer_keyWords": "5-10年;投资咨询牌照;主标MT4;只做中国市场" },
+                    { "dealer_href": "jys/Index.html?traderCode=2791535487&appAction=#goToAppTrader", "dealer_logoUrl": "http://eimgjys.fx960.com/logo/2791535487/FXT_2791535487_400x226.png_fxeye-template-global", "dealer_statusTxt": "监管中", "dealer_statusColor": "#2BB351", "dealer_name": "CLMFX熙伦国际", "dealer_score": "5.62", "dealer_keyWords": "5-10年;投资咨询牌照;主标MT4;只做中国市场" }
+                ];
+                return dealers;
+            };
+            function ban_scroll() { //顶部图片轮播
+                var vr_num = $("#slide_vr").find(".swiper-slide").length;
+                var video_num = $("#slide_video").find(".swiper-slide").length;
+                var nav_len = $("#banner-navBox .nav-btn").length;
+                var aWidth = $(document).width();
+                var mySwiper0 = new Swiper('#slide_vr .swiper-container', {
+                    pagination: {
+                        el: '#slide_vr .swiper-pagination',
+                        type: 'fraction',
+                    },
+                    observer: true,
+                    observeParents: true,
+                    on: {
+                        touchEnd: function(event) {
+                            var TR = this.translate;
+                            var TR = this.translate;
+                            if (TR < -aWidth * (vr_num-1)) {
+                                if ($("#banner-navBox").css("display") == 'none') {
+                                    return;
+                                }
+                                $("#banner-navBox .nav-btn").eq(1).trigger('click');
+                            }
+                        },
+
+                    }
+                });
+                var mySwiper1 = new Swiper('#slide_video .swiper-container', {
+                    pagination: {
+                        el: '#slide_video .swiper-pagination',
+                        type: 'fraction',
+                    },
+                    observer: true,
+                    observeParents: true,
+                    on: {
+                        touchEnd: function(event) {
+                            var TR = this.translate;
+                            var TR = this.translate;
+                            if (TR < -aWidth * (video_num-1)) {
+                                if ($("#banner-navBox").css("display") == 'none') {
+                                    return;
+                                }
+                                $("#banner-navBox .nav-btn").eq(nav_len-1).trigger('click');
+                            }
+                            if (TR>0) {
+                                if ($("#banner-navBox").css("display") == 'none') {
+                                    return;
+                                }
+                                $("#banner-navBox .nav-btn").eq(0).trigger('click');
+                            }
+                        },
+
+                    }
+                });
+                var mySwiper2 = new Swiper('#slide_pic .swiper-container', {
+                    pagination: {
+                        el: '#slide_pic .swiper-pagination',
+                        type: 'fraction',
+                    },
+                    observer: true,
+                    observeParents: true,
+                    on: {
+                        touchEnd: function(event) {
+                            var TR = this.translate;
+                            if (TR>0) {
+                                if ($("#banner-navBox").css("display") == 'none') {
+                                    return;
+                                }
+                                $("#banner-navBox .nav-btn").eq(nav_len-2).trigger('click');
+                            }
+                        },
+                    }
+                });
+            };
+            $(document).on("click","#banner-navBox .nav-btn",function(){
+                if ($(this).hasClass('on')) {
+                    return;
+                }
+                var self = $(this);
+                var index = $('#banner-navBox .nav-btn').index(self);
+                var timer1 = setTimeout(function(){
+                    self.addClass('on').siblings('span').removeClass('on');
+                    $("#slideBox").find(".slide-item").hide().eq(index).show();
+                },50);
+            });
+        </script>
+</body>
+
+</html>
