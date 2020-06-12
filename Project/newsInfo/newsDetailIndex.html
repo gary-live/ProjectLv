@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densityDpi=device-dpi">
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="index_article.css">
+    <title></title>
+    <style type="text/css">
+    .cont_cont img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto 20px;
+        background: #e6e6e6 url("black_pic_placeholder.png") no-repeat 50%;
+    }
+    </style>
+</head>
+
+<body>
+<script type="text/javascript">
+    function view() {
+        return {
+            w: document.documentElement.clientWidth,
+            h: document.documentElement.clientHeight
+        };
+    }
+    document.body.style.height = view().h + 'px';
+    </script>
+<div id="compiled" style="display:none;">
+    <!-- 头部开始 -->
+    <div class="new_h">
+        <h1 id="news_title"></h1>
+        <span id="news_sourse">
+                    
+                </span>
+    </div>
+    <!-- 交易商信息 -->
+    <div class="nex_cc nex_cc_155" id="top_dealer" style="display: none;">
+    </div>
+    <!-- 内容区域 -->
+    <div class="cont_cont" id="content">
+    </div>
+    <p hidden class="jo_yi"></p>
+    <div class="dealers" id="bottom_dealer" style="display: none;">
+    </div>
+    <div id="modle_imgs" style="display: none;"></div>
+</div>
+<div id="before_compile">
+    <img src="before_compile.png" alt="">
+</div>
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="html5media.min.js"></script>
+<script>
+    function ReplaceVideo() { //将视频播放器替换为video
+        if ($(".cont_cont embed").length > 0) {
+            for (var i = 0; i < $(".cont_cont embed").length; i++) {
+                var item = $($(".cont_cont embed")[i]);
+                var src = item.attr("src");
+                var imgsrc = item.attr("imgsrc");
+                var vtime = item.attr("vtime")=='' || undefined ? 7900 : item.attr("vtime");
+                if (imgsrc!=undefined && imgsrc!="") {
+                    imgsrc = imgsrc.slice(0,imgsrc.indexOf('snapshot'))+'snapshot,t_'+vtime+',f_jpg,w_420,h_236';
+                    var vdo = '<div><video width="100%" controls poster="'+imgsrc+'"><source src="' + src + '" type="video/mp4" /></video></div>';
+                }else {
+                    var vdo = '<div><video width="100%" controls poster="defaultvideo.png"><source src="' + src + '" type="video/mp4" /></video></div>';
+                }
+                item.replaceWith(vdo);
+            }
+        }
+    }
+
+    function LoadData() {
+        doLoadData(doGetSourse(), doGetContent(), doGetDealers());
+    }
+    LoadData();
+
+    function doLoadData(sourse, detail, dealers) {
+        if (sourse) {
+            var str = '<img src="' + sourse.logo_url + '">' + sourse.name + '&nbsp;&nbsp;|&nbsp;&nbsp;' + sourse.add_time;
+            $("#news_sourse").html(str);
+        }
+        if (detail) {
+            $("#content").html("");
+            $("#content").html(detail.news_content);
+            $("#news_title").html(detail.news_title);
+            //正文去前置空格
+            $(".cont_cont p").map(function(n, a) {
+                $(this).html($.trim($(this).html()));
+            });
+            ReplaceVideo();
+            holderImg();
+
+        } else {
+            alert("加载数据失败！");
+            return !1;
+        };
+        if (dealers) {
+            var top_str = "";
+            var bottom_str = "";
+            for (var i = 0; i < dealers.length; i++) {
+                if (dealers[i].is_self == true) {
+                    top_str += '<a href="' + dealers[i].dealer_href + '" target="_blank">' + '<div class="lt_ct new2"><img src="';
+                    top_str += dealers[i].dealer_logoUrl + '"onerror="this.src = ' + '\'default.png\'' + '">' + '<span class="jg" style="background:' + dealers[i].dealer_statusColor + '">' + dealers[i].dealer_statusTxt + '</span></div>';
+                    top_str += '<div class="in_newcc in_newcc2"><p class="pp">' + dealers[i].dealer_name + '</p><div class="zua_zuan zua_zuan2"><span class="sp_sp2">'+sourse.eyeScore_tit+'<i>' + dealers[i].dealer_score + '</i></span></div>';
+                    if (dealers[i].dealer_keyWords != "" && dealers[i].dealer_keyWords != undefined) {
+                        top_str += '<p class="pc">'+dealers[i].dealer_keyWords.replace(/;/g, '&nbsp;|&nbsp;') + '</p>';
+                    }
+                    top_str += '</div><div class="clear"></div></a>';
+                } else {
+                    bottom_str += '<div class="ss_ss"><a href="' + dealers[i].dealer_href + '" target="_blank">' + '<div class="lt_ct"><img src="';
+                    bottom_str += dealers[i].dealer_logoUrl + '"onerror="this.src = ' + '\'default.png\'' + '">' + '<span class="jg" style="background:' + dealers[i].dealer_statusColor + '">' + dealers[i].dealer_statusTxt + '</span></div>';
+                    bottom_str += '<div class="rt_ct"><p class="pa">' + dealers[i].dealer_name + '</p><div class="zua_zuan"><span class="sp_sp2">'+sourse.eyeScore_tit+'<i>' + dealers[i].dealer_score + '</i></span></div>';
+                    if (dealers[i].dealer_keyWords != "" && dealers[i].dealer_keyWords != undefined) {
+                        bottom_str += '<p class="pc">'+dealers[i].dealer_keyWords.replace(/;/g, '&nbsp;|&nbsp;') + '</p>';
+                    }
+                    bottom_str += '</div><div class="clear"></div></a></div>';
+                }
+            }
+            if (top_str != '') {
+                $("#top_dealer").html(top_str).show();
+            }
+            if (bottom_str != '') {
+                $(".jo_yi").html(sourse.aboutTrader_tit).show();
+                $("#bottom_dealer").html(bottom_str).show();
+            }
+        }
+        $("#before_compile").hide().siblings('#compiled').show();
+        $("#news_sourse img").on("error", function() {
+            $(this).attr("src", "logo_default.png")
+        });
+    }
+    var oriImages;
+
+    function gerOriginImage() {
+        var listimg = $(".cont_cont img");
+        var listimgshuzu = [];
+        if (listimg.length>0) {
+            $.each(listimg, function(i, item) {
+                var src = $(item).attr("src");
+                if (src != undefined && src != "") {
+                    $(item).attr("num", i);
+                    listimgshuzu.push(src);
+                }
+            });
+        }
+        oriImages = listimgshuzu;
+        return listimgshuzu;
+    }
+    function ReplaceImg() {
+        return oriImages;
+    }
+    function holderImg(){
+        var ori_src = gerOriginImage();
+        var conimgs= $(".cont_cont img");
+        if (conimgs.length>0) {
+            conimgs.each(function(){
+                $(this).attr("src","pic_default.png");
+                $(this).css({'width':'100%','height':'auto'});
+            })
+        };
+        var ori_imgs = [];
+        for(var i = 0;i<conimgs.length;i++){
+            (function(i){
+                var index = i;
+                ori_imgs[i] = new Image();
+
+                ori_imgs[i].onload = function(){
+                    ori_imgs[i].onload = null;
+                    conimgs[i].replaceWith(this);
+                };
+                ori_imgs[i].setAttribute("num",i);
+                ori_imgs[i].src = ori_src[i];
+            }(i));
+        }
+    }
+    $(document).on("click", ".cont_cont img", function() {
+        var num = $(this).attr("num");
+        window.location.href = "http://tt.cngold.com.cn?imgnum=" + num;
+    });
+
+    function doGetSourse() {
+        var sourse = {
+            "logo_url": 'http://eimgjys.fx960.com/ico/2791535487/FXT2791535487_625559.png_fxeye-template-global',
+            "name": '熙伦国际',
+            "add_time": "2018-08-02 10:46:02",
+            "eyeScore_tit":"天眼评分",
+            "aboutTrader_tit":"文中涉及的交易商"
+        }
+        return sourse;
+    }
+
+    function doGetContent() {
+        var content = {"news_content":"\u003cp style\u003d\"text-align:center\"\u003e\u003cembed type\u003d\"application/x-shockwave-flash\" class\u003d\"edui-faked-video\" pluginspage\u003d\"http://www.macromedia.com/go/getflashplayer\" src\u003d\"https://fxeye-video.oss-cn-shanghai.aliyuncs.com/2019tbbd/whtytbbd2019_1_2_01.mp4\" width\u003d\"420\" height\u003d\"280\" wmode\u003d\"transparent\" play\u003d\"true\" loop\u003d\"false\" menu\u003d\"false\" allowscriptaccess\u003d\"never\" allowfullscreen\u003d\"true\"/\u003e\u003c/p\u003e\u003cp\u003e　　随着外汇天眼实勘工作的逐步推进，越来越多的投资者发来消息，希望天眼能够针对更多交易商进行实勘报道。本期实勘，应广大投资者要求，外汇天眼实地走访了交易商CMCMarktes英国持牌公司。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_b3b1b0a9dcef4574bd7d7f64645306e4.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"CMC监管信息截图\"/\u003e\u003c/center\u003e\u003cp\u003e　　CMCMarktes（以下称：CMC），公司注册于澳大利亚，从事外汇经纪业务近20年，持有多国监管牌照。其中英国（FCA）监管为全牌照（MM）。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_574eb53cbcfb4125b1e7012a6f1a6f55.png-hy_list_articlepic\" width\u003d\"580\" title\u003d\"CMC监管信息截图\"/\u003e\u003c/center\u003e\u003cp style\u003d\"text-align: center;\"\u003eCMC监管信息截图\u003c/p\u003e\u003cp\u003e　　根据监管信息显示，CMC英国持牌机构地址为：133 Houndsditch LondonEC3A 7BX UNITED KINGDOM（英国伦敦洪斯狄许街133号，邮编EC3A 7BX）。实勘人员针对这一地址进行了实地探访。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_5285be60d168492f85962cf754bf8a94.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"英国伦敦洪斯狄许街133号\"/\u003e\u003c/center\u003e\u003cp style\u003d\"text-align: center;\"\u003e英国伦敦洪斯狄许街133号\u003c/p\u003e\u003cp\u003e　　实勘人员来到英国伦敦洪斯狄许街133号。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_d4339104931b484e84f486a43b938eae.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"CMC公司前台实景\"/\u003e\u003c/center\u003e\u003cp style\u003d\"text-align: center;\"\u003eCMC公司前台实景\u003c/p\u003e\u003cp\u003e　　进入办公楼，可以看到CMC的logo悬挂于前台，十分明显。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_1cb6e9e458104c3f91d9f8fb4c75ca1a.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"办公司内景\"/\u003e\u003c/center\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_40bd5750ace24c1ea43780edc6f9619b.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"办公司内景\"/\u003e\u003c/center\u003e\u003cp style\u003d\"text-align: center;\"\u003e办公司内景\u003c/p\u003e\u003cp\u003e　　走进办公室，可以看到整个办公区域宽敞明亮，且有员工在内办公。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_f3c473847ee14998a3d7074ac1695351.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\" 办公室内景\"/\u003e\u003c/center\u003e\u003cp style\u003d\"text-align: center;\"\u003e办公室内景\u003c/p\u003e\u003cp\u003e　　办公室内还陈列了CMC历年所获各大奖项。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_fc7b8799b53a4320a89cb4ccda4a6918.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"CMC工作人员\"/\u003e\u003c/center\u003e\u003cp style\u003d\"text-align: center;\"\u003eCMC工作人员\u003c/p\u003e\u003cp\u003e　　CMC的工作人员对天眼的此次探访十分配合。通过实地拍摄，我们也看到了交易商CMCMarktes在英国的持牌公司是真实存在的。\u003c/p\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_547faaed05fc4732aff18df9b9d83caa.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"来自外汇天眼CMC交易商界面截图\"/\u003e\u003c/center\u003e\u003ccenter\u003e\u003cimg src\u003d\"http://wzimg.fx960.com/ty_list/2019/01/FXA_3dc4e06aa1fb4437887e72a51dd7a851.jpg-hy_list_articlepic\" width\u003d\"580\" title\u003d\"来自外汇天眼CMC交易商界面截图\"/\u003e\u003c/center\u003e\u003cp style\u003d\"text-align: center;\"\u003e来自外汇天眼CMC交易商界面截图\u003c/p\u003e","news_title":"【实勘】外汇天眼英国走访知名经纪商——CMCMarkets",
+        
+        };
+        return content;
+    }
+
+    function doGetDealers() {
+        var dealers = [
+            { "dealer_href": "jys/Index.html?traderCode=2791535487&appAction=#goToAppTrader", "dealer_logoUrl": "http://eimgjys.fx960.com/logo/2791535487/FXT_2791535487_400x226.png_fxeye-template-global", "dealer_statusTxt": "监管中", "dealer_statusColor": "#2BB351", "dealer_name": "CLMFX熙伦国际", "dealer_score": "5.62", "dealer_keyWords": "5-10年;投资咨询牌照;主标MT4;只做中国市场", "is_self": true },
+            { "dealer_href": "jys/Index.html?traderCode=2791535487&appAction=#goToAppTrader", "dealer_logoUrl": "http://eimgjys.fx960.com/logo/2791535487/FXT_2791535487_400x226.png_fxeye-template-global", "dealer_statusTxt": "监管中", "dealer_statusColor": "#2BB351", "dealer_name": "CLMFX熙伦国际", "dealer_score": "5.62", "dealer_keyWords": "5-10年;投资咨询牌照;主标MT4;只做中国市场", "is_self": false },
+            { "dealer_href": "jys/Index.html?traderCode=2791535487&appAction=#goToAppTrader", "dealer_logoUrl": "http://eimgjys.fx960.com/logo/2791535487/FXT_2791535487_400x226.png_fxeye-template-global", "dealer_statusTxt": "监管中", "dealer_statusColor": "#2BB351", "dealer_name": "CLMFX熙伦国际", "dealer_score": "5.62", "dealer_keyWords": "5-10年;投资咨询牌照;主标MT4;只做中国市场", "is_self": false }
+        ]
+        return dealers;
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+*,
+::before,
+::after{
+    margin: 0;
+    padding: 0;
+
+    -webkit-tap-highlight-color: transparent;/*������Ĭ�ϵĸ���Ч��*/
+
+    -webkit-box-sizing: border-box;/*�����border��ʼ������Ŀ���*/
+    
+}
+
+body{
+    font-size: 14px;
+    font-family: 'PingFangSC','STHeiti','Microsoft YaHei','Helvetica','Arial',sans-serif;/*�ڶ������ֻ���һ��Ĭ�ϵ�����*/
+    color: #000; 
+    background:#fff;
+}
+body *{
+    max-height: 999999px;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+    
+}
+i{
+    font-style: normal;
+}
+ul{
+    list-style: none;
+}
+
+input,textarea{
+    border: none;
+    resize: none;
+    outline: none;/*���ѡ��Ч��*/
+
+    -webkit-appearance: none;/*��������Ĭ�ϵ���ʽ*/
+}
+li{
+    list-style: none;
+}
+/*�������*/
+.clearfix::before,
+.clearfix::after{
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+
+
