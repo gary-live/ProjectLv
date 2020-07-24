@@ -1,0 +1,76 @@
+diff a/Project/Demo/demo1.html b/Project/Demo/demo1.html	(rejected hunks)
+@@ -18,6 +18,72 @@
+     <!-- What the Font -->
+     <!-- 字体是设计中相当重要的组成部分，而这个工具就是能帮你找到，当前网站用的什么字体。这是个 chrome 插件，只需要简单的点击一下即可出现字体的详情。 -->
+ 
+-    
++    <!-- https://uses.tech/ -->
++    <!-- 这是一个面向看开发者、设计师、博客作者、Youtuber 和 播客主播的实用工具、软件合集。你可以根据工具的国家/地区、编程语言等进行排序和筛选。这是一套能找到灵感和建议的实用合集。 -->
++
++    <!-- Alpine.js -->
++    <!-- https://github.com/alpinejs/alpine -->
++    <!-- Alpine.js 是一个非常小巧的 JavaScript 库，它可以向你的网站添加动态行为。使用 Alpine.js 可以非常便捷地将诸如 x-data、xbind、x-on 和 x-model 添加到你的现有的 HTML 标记当中，无需设置搭建环境和编译器。它可以很好的替代 React.js 和 Vue.js 所提供的方法。 -->
++
++    <!-- Vivus -->
++    <!-- https://github.com/maxwellito/vivus -->
++    <!-- 这是一个用来创建 SVG 格式动画的 JS 库，Vivus 非常易用，它提供了名为 Vivus Instant 的文件，便于你往其中上传 SVG 文件，生成 SVG 动画。 -->
++
++    <!-- GistPad -->
++    <!-- https://marketplace.visualstudio.com/items?itemName=vsls-contrib.gistfs -->
++    <!-- GistPad 是给 Visual Studio Code 所准备的拓展，它可以让你管理 Github Gist，最新版还包含一个 Playground 新功能，类似 CodePen.io 和 JSBin，因此你可以添加 HTML、CSS、JS ，并且可以在 Visual Studio Code 中立即看到结果。 -->
++
++    <!-- Shadows -->
++    <!-- https://brumm.af/shadows -->
++    <!-- 这是一个可以生成多层阴影的便捷的 Web 应用，你可以决定要添加多少层，用什么颜色，搭配什么效果。然后，你可以将自动生成的CSS代码复制出来使用。 -->
++
++    <!-- Responsive Breakpoints -->
++    <!-- https://responsivebreakpoints.com/ -->
++    <!-- 顾名思义，这是一个可以帮你生成响应式断点的工具，他可以将图片处理成为最适合展示的尺寸。此外，它还提供了一些选项，让你可以在其中配置窗口大小范围，图片尺寸比例，生成 HTML 以显示图片。 -->
++
++    <!-- Browserosaurus -->
++    <!-- https://browserosaurus.com/ -->
++    <!-- 这是一款可以往链接上添加包含选区的上下文菜单的 macOS 平台的应用。 -->
++
++    <!-- massCode -->
++    <!-- https://masscode.io/ -->
++    <!-- 这是一个可以用来管理代码片段的桌面级引用，它可以将编写好的代码片段和示例，整齐地分类。massCode 可以用于 Windows、macOS 和 Linux 三个平台 -->
++
++    <!-- XI-Editor -->
++    <!-- https://github.com/xi-editor/xi-editor -->
++    <!-- XI-Editor 是一款创建文本编辑器的准系统，它可以为开发者提供可靠、可拓展的服务，并且确保性能。它目前已经投放在 macOS 平台，以及带有 GTK+ 的 Linux 和 Windows 系统上。 -->
++
++    <!-- React Contenteditable -->
++    <!-- https://github.com/lovasoa/react-contenteditable -->
++    <!-- React Contenteditable 为 React.js 提供一个可编辑组件的区域，你可以在这当中可以添加按钮、添加粗体、斜体和超链接，是你创建所见即所得的编辑器的理想基底。 -->
++
++    <!-- Outline -->
++    <!-- https://github.com/outline/outline -->
++    <!-- 这是一款有着足够现代功能的自托管 Wiki Web 应用，它是基于当下流行的 React.js、Node.js、Postgres、Redis等工具来建立，使用 AWS 来存储，并且整体外观也足够现代。你可以用它创建团队 Wiki，文档系统，会议记录以及着陆页。 -->
++
++    <!-- Crater -->
++    <!-- https://craterapp.com/ -->
++    <!-- Crater 是一款使用 PHP 构建的用户管理发票的 Web 应用，它不仅可以帮你创建发票，发布采购订单，还可以管理客户等。如果你想充分管理你的发票和数据，那么它是一个合理的选择。 -->
++
++    <!-- Directus -->
++    <!-- https://github.com/directus/directus -->
++    <!-- Directus 是一款无头 CMS，让你可以为几乎任何类型的内容（新闻、用户信息、产品等）添加自定义的字段。你可以选择使用任何语言或者工具，通过 RESTful 或者 GraphQL 来调用 API中的内容。 -->
++
++    <!-- Craft.js -->
++    <!-- https://craft.js.org/ -->
++    <!-- Craft.js 是一个基于 React 框架、用来构建丰富内容的拖放式页面编辑器，它提供了基础的拖放式交互系统，并且提供了渲染、刷新和移动的组件。使用 Craft.js 来构建你的编辑器，它是理想的框架。 -->
++
++    <!-- Devilbox -->
++    <!-- https://github.com/cytopia/devilbox -->
++    <!-- Devibox 是一款用来支撑本地开发的完整的堆栈，它为你提供你所需要的绝大多数的服务，比如 Apache、Nginx、MySQL、PHP、MailHog 等等。 -->
++
++    <!-- Magic.css -->
++    <!-- https://github.com/miniMAC/magic -->
++    <!-- Magic.css 是一个平滑的CSS动画的合集。在它的帮助下，你可以向网站添加动画，就像往 HTML 当中添加类名称一样方便。你可以使用 NPM、Yarn 来安装 Magic.css，并且将它与 JavaScript 和 jQuery 混用。 -->
++
++    <!-- Kutt -->
++    <!-- https://github.com/thedevs-network/kutt -->
++    <!-- Kutt 是一个短链接 Web 应用，它支持自定义域，并且提供立即可用的统计信息功能。它使用的是 Node.js 、Prosgress 和 Redis 来构建的。你可以将它托管到你自己的服务器当中。 -->
++
+ </body>
+ </html>
+\ No newline at end of file
